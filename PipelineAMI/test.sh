@@ -1,7 +1,7 @@
 # cd PipelineAMI/terraform
 cd terraform
 
-uri=$(terraform output | grep public_ip | awk '{print $2;exit}' | sed -e "s/\",//g")
+uri=$(terraform output | grep public: | awk '{print $2;exit}' | sed -e "s/\",//g")
 
 kube_adm=$(ssh -i /var/lib/jenkins/key.pem ubuntu@$uri 'kubeadm version')
 
