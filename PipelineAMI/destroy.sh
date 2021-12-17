@@ -1,3 +1,3 @@
-# cd PipelineAMI/terraform
-cd terraform
+cd PipelineAMI/terraform
+# cd terraform
 terraform destroy -auto-approve
