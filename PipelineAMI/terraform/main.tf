@@ -100,7 +100,7 @@ resource "aws_security_group" "jenkins" {
 
 output "maquina" {
   value = [
-    "id: ${aws_instance.jenkins.id}",
+    "resource_id: ${aws_instance.jenkins.id}",
     "private: ${aws_instance.jenkins.private_ip}",
     "public: ${aws_instance.jenkins.public_ip}",
     "public_dns: ${aws_instance.jenkins.public_dns}",
