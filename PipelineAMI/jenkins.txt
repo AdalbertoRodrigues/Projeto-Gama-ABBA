@@ -1,0 +1,35 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Clone repo') {
+            steps {
+                git url: 'https://github.com/AdalbertoRodrigues/Projeto-Gama-ABBA', branch: 'main'
+            }
+        }
+        stage('Build EC2') {
+            steps {
+                sh "chmod +x PipelineAMI/deploy.sh"
+                sh "PipelineAMI/deploy.sh"
+            }
+        }
+        stage('Test kubernetes e docker') {
+            steps {
+                sh "chmod +x PipelineAMI/test.sh"
+                sh "PipelineAMI/test.sh"
+            }
+        }
+        stage('Creating ami') {
+            steps {
+                sh "chmod +x PipelineAMI/package-ami.sh"
+                sh "PipelineAMI/package-ami.sh"
+            }
+        }
+        stage('Destroy') {
+            steps {
+                sh "chmod +x PipelineAMI/destroy.sh"
+                sh "PipelineAMI/destroy.sh"
+            }
+        }
+    }
+}
