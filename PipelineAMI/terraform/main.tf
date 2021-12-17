@@ -16,13 +16,13 @@ data "aws_ami" "ami-ubuntu" {
 variable "vpc" {
   type = string
 
-  default = "vpc-0a194c591c05ac7a4"
+  default = "vpc-07cb5bd154e98fe7e"
 }
 
 variable "subnet" {
   type = string
 
-  default = "subnet-026188ad722fd00ef"
+  default = "subnet-0e8f392219ff33c64"
 }
 
 variable "key" {
