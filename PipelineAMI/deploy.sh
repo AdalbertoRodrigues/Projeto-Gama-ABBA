@@ -1,4 +1,4 @@
-cd terraform
+cd PipelineAMI/terraform
 terraform init
 terraform fmt
 terraform apply -auto-approve

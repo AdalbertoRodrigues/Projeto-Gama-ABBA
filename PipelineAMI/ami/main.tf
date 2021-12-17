@@ -9,7 +9,6 @@ resource "aws_ami_from_instance" "ami-kubernetes" {
 
 variable "resource_id" {
   type        = string
-  default = "i-06a000cab75f05b50"
   description = "Qual o ID da máquina?"
 }
 
