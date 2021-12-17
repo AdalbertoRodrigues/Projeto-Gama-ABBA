@@ -1,0 +1,27 @@
+pipeline {
+    agent any
+
+    // parameters {
+    //     string(name: 'AMI_ID', defaultValue: '', description: 'id da ami do kubernets')
+    // }
+
+    stages {
+        stage('Clone repo') {
+            steps {
+                git url: 'https://github.com/AdalbertoRodrigues/Projeto-Gama-ABBA.git', branch: 'main'
+            }
+        }
+        stage('Build Cluster') {
+            steps {
+                sh 'chmod +x PipelineMULTIMASTER/deploy.sh'
+                sh 'PipelineMULTIMASTER/deploy.sh'
+            }
+        }
+        stage('Verifica Cluster') {
+            steps {
+                sh 'chmod +x PipelineMULTIMASTER/verifica.sh'
+                sh 'PipelineMULTIMASTER/verifica.sh'
+            }
+        }
+    }
+}
