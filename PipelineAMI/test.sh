@@ -1,3 +1,4 @@
+#!/bin/bash
 cd PipelineAMI/terraform
 # cd terraform
 
