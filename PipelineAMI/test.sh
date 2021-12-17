@@ -1,5 +1,5 @@
-# cd PipelineAMI/terraform
-cd terraform
+cd PipelineAMI/terraform
+# cd terraform
 
 uri=$(terraform output | grep public: | awk '{print $2;exit}' | sed -e "s/\",//g")
 
