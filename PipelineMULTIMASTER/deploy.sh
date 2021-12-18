@@ -38,6 +38,26 @@ ID_W2_DNS=$(terraform output | grep 'k8s-workers 2 -' | awk '{print $9;exit}' | 
 ID_W3=$(terraform output | grep 'k8s-workers 3 -' | awk '{print $4;exit}')
 ID_W3_DNS=$(terraform output | grep 'k8s-workers 3 -' | awk '{print $9;exit}' | cut -b 8-)
 
+
+echo "
+[ec2-k8s-proxy]
+$ID_HAPROXY
+
+[ec2-k8s-m1]
+$ID_M1
+[ec2-k8s-m2]
+$ID_M2
+[ec2-k8s-m3]
+$ID_M3
+
+[ec2-k8s-w1]
+$ID_W1
+[ec2-k8s-w2]
+$ID_W2
+[ec2-k8s-w3]
+$ID_W3
+"
+
 echo "
 [ec2-k8s-proxy]
 $ID_HAPROXY
