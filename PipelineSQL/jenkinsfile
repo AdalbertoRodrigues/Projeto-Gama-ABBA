@@ -3,13 +3,13 @@ pipeline {
     agent any
 
     parameters {
-        password(name: 'DB_PASSWORD', defaultValue: '', description: 'Senha para database')
+        password(name: 'PASSWORD', defaultValue: '', description: 'Senha para database')
     }
 
     stages {
         stage('Clone repo') {
             steps {
-                git url: 'https://github.com/ericohortolan/projetofinalGamaThree', branch: 'main'
+                git url: 'https://github.com/AdalbertoRodrigues/Projeto-Gama-ABBA', branch: 'main'
             }
         }
         stage('Build Cluster') {
