@@ -18,26 +18,45 @@ sleep 10
 ID_M1=$(terraform output | grep 'k8s-master 1 -' | awk '{print $4;exit}')
 ID_M1_DNS=$(terraform output | grep 'k8s-master 1 -' | awk '{print $9;exit}' | cut -b 8-)
 
+echo "M1 -> $ID_M1"
+echo "$ID_M1_DNS"
+
 ID_M2=$(terraform output | grep 'k8s-master 2 -' | awk '{print $4;exit}')
 ID_M2_DNS=$(terraform output | grep 'k8s-master 2 -' | awk '{print $9;exit}' | cut -b 8-)
+
+echo "M2 -> $ID_M2"
+echo "$ID_M2_DNS"
 
 ID_M3=$(terraform output | grep 'k8s-master 3 -' | awk '{print $4;exit}')
 ID_M3_DNS=$(terraform output | grep 'k8s-master 3 -' | awk '{print $9;exit}' | cut -b 8-)
 
+echo "M3 -> $ID_M3"
+echo "$ID_M3_DNS"
 
 ID_HAPROXY=$(terraform output | grep 'k8s_proxy -' | awk '{print $3;exit}')
 ID_HAPROXY_DNS=$(terraform output | grep 'k8s_proxy -' | awk '{print $8;exit}' | cut -b 8-)
+
+echo "HAPROXY -> $ID_HAPROXY"
+echo "$ID_HAPROXY_DNS"
 
 
 ID_W1=$(terraform output | grep 'k8s-workers 1 -' | awk '{print $4;exit}')
 ID_W1_DNS=$(terraform output | grep 'k8s-workers 1 -' | awk '{print $9;exit}' | cut -b 8-)
 
+echo "W1 -> $ID_W1"
+echo "$ID_W1_DNS"
+
 ID_W2=$(terraform output | grep 'k8s-workers 2 -' | awk '{print $4;exit}')
 ID_W2_DNS=$(terraform output | grep 'k8s-workers 2 -' | awk '{print $9;exit}' | cut -b 8-)
+
+echo "W2 -> $ID_W2"
+echo "$ID_W2_DNS"
 
 ID_W3=$(terraform output | grep 'k8s-workers 3 -' | awk '{print $4;exit}')
 ID_W3_DNS=$(terraform output | grep 'k8s-workers 3 -' | awk '{print $9;exit}' | cut -b 8-)
 
+echo "WE -> $ID_W3"
+echo "$ID_W3_DNS"
 
 echo "
 [ec2-k8s-proxy]
@@ -127,7 +146,7 @@ ff02::3 ip6-allhosts
 cd ../2-ansible/01-k8s-install-masters_e_workers
 
 ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i hosts provisionar.yml -u ubuntu --private-key ~/key.pem
-ANSIBLE_OUT=$(ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i hosts provisionar.yml -u ubuntu --private-key key.pem)
+ANSIBLE_OUT=$(ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i hosts provisionar.yml -u ubuntu --private-key ~/key.pem)
 
 #### Mac ###
 #K8S_JOIN_MASTER=$(echo $ANSIBLE_OUT | grep -oE "(kubeadm join.*?certificate-key.*?)'" | sed 's/\\//g' | sed "s/'t//g" | sed "s/'//g" | sed "s/,//g")
