@@ -56,25 +56,6 @@ $ID_W1
 $ID_W2
 [ec2-k8s-w3]
 $ID_W3
-"
-
-echo "
-[ec2-k8s-proxy]
-$ID_HAPROXY
-
-[ec2-k8s-m1]
-$ID_M1
-[ec2-k8s-m2]
-$ID_M2
-[ec2-k8s-m3]
-$ID_M3
-
-[ec2-k8s-w1]
-$ID_W1
-[ec2-k8s-w2]
-$ID_W2
-[ec2-k8s-w3]
-$ID_W3
 " > ../2-ansible/01-k8s-install-masters_e_workers/hosts
 
 echo "
@@ -145,7 +126,7 @@ ff02::3 ip6-allhosts
 
 cd ../2-ansible/01-k8s-install-masters_e_workers
 
-ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i hosts provisionar.yml -u ubuntu --private-key key.pem
+ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i hosts provisionar.yml -u ubuntu --private-key ~/key.pem
 ANSIBLE_OUT=$(ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i hosts provisionar.yml -u ubuntu --private-key key.pem)
 
 #### Mac ###
@@ -203,4 +184,4 @@ cat <<EOF > 2-provisionar-k8s-master-auto-shell.yml
         msg: " '{{ ps.stdout_lines }}' "
 EOF
 
-ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i hosts 2-provisionar-k8s-master-auto-shell.yml -u ubuntu --private-key /var/lib/jenkins/.ssh/key.pem
+ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i hosts 2-provisionar-k8s-master-auto-shell.yml -u ubuntu --private-key ~/key.pem
