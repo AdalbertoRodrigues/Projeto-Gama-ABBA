@@ -40,21 +40,21 @@ ID_W3_DNS=$(terraform output | grep 'k8s-workers 3 -' | awk '{print $9;exit}' | 
 
 echo "
 [ec2-k8s-proxy]
-$ID_HAPROXY_DNS
+$ID_HAPROXY
 
 [ec2-k8s-m1]
-$ID_M1_DNS
+$ID_M1
 [ec2-k8s-m2]
-$ID_M2_DNS
+$ID_M2
 [ec2-k8s-m3]
-$ID_M3_DNS
+$ID_M3
 
 [ec2-k8s-w1]
-$ID_W1_DNS
+$ID_W1
 [ec2-k8s-w2]
-$ID_W2_DNS
+$ID_W2
 [ec2-k8s-w3]
-$ID_W3_DNS
+$ID_W3
 " > ../2-ansible/01-k8s-install-masters_e_workers/hosts
 
 echo "
