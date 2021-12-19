@@ -4,4 +4,4 @@ metadata:
   name: mysql-configmap-dev
 data:
   USER: root
-  DATABASE_URL: mysql://10.0.30.34:3306/SpringWebYoutube?useTimezone=true&serverTimezone=UTC
+  DATABASE_URL: mysql://10.0.30.230:3306/SpringWebYoutube?useTimezone=true&serverTimezone=UTC

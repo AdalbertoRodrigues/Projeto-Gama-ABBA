@@ -1,0 +1,25 @@
+- hosts: all
+  become: yes
+  tasks:
+    
+    - name: "Upload k8s-deploy"
+      copy:
+        src: "k8s-deploy"
+        dest: "~/"
+
+    - name: "Aplicar configmap stag"
+      shell: kubectl apply -f ~/k8s-deploy/mysql-configmap-stag.yml
+
+    - name: "Aplicar secret"
+      shell: kubectl apply -f ~/k8s-deploy/mysql-secret.yml
+
+    - name: "Aplicar deployment stag"
+      shell: kubectl apply -f ~/k8s-deploy/deployment-stag.yml
+
+    - name: "Aplicar nodeport stag"
+      shell: kubectl apply -f ~/k8s-deploy/nodeport-javadb-stag.yml
+
+    - shell: "kubectl get pods | grep java-deployment-stag"
+      register: ps
+    - debug:
+        msg: " '{{ ps.stdout_lines }}' "
