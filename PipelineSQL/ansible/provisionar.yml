@@ -8,17 +8,22 @@
       apt:
         update_cache: yes
         #upgrade: yes
-
-    - name: "Instala pacotes"
+    - name: "Instala pacotes python3-pycurl"
       apt:
-        name: "{{ item }}"
+        name: python3-pycurl
         state: latest
       become: yes # roda com sudo
-      with_items:
-        - mysql-server
-        - python3-pycurl
-        - python3-mysqldb
 
+    - name: "Instala pacotes python3-mysqldb"
+      apt:
+        name: python3-mysqldb
+        state: latest
+      become: yes # roda com sudo
+    - name: "Instala pacotes mysql-server"
+      apt:
+        name: mysql-server
+        state: latest
+      become: yes # roda com sudo
 
     - name: "Lavanta serviço do mysql"
       become: yes
@@ -29,14 +34,19 @@
     - name: "Alterando senha usuario SQL"
       become: yes
       ignore_errors: yes
-      mysql_user:
+      mysql_user:  
         name: "root"
-        host: "%"  
-        host_all: true
+        host: "{{ item }}" 
         password: "{{ lookup('env', 'PASSWORD') }}"
         priv: "*.*:ALL,GRANT"
         state: present
         check_implicit_admin: true
+      with_items:  
+      - '%'
+      - 127.0.0.1  
+      - ::1  
+      - localhost
+
 
     - name: "Libera acesso MySQL"
       become: yes
