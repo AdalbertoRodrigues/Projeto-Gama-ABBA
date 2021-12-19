@@ -31,6 +31,7 @@
       ignore_errors: yes
       mysql_user:
         name: "root"
+        host: "%"  
         host_all: true
         password: "{{ lookup('env', 'PASSWORD') }}"
         priv: "*.*:ALL,GRANT"
