@@ -26,6 +26,24 @@ resource "aws_security_group_rule" "acessos_master_rule_tcp" {
   cidr_blocks      = ["0.0.0.0/0"]
   security_group_id = aws_security_group.acessos_masters.id
 }
+resource "aws_security_group_rule" "acessos_master_rule_tcp2" {
+  type             = "ingress"
+  description      = "Libera acessos"
+  from_port        = 30001
+  to_port          = 30001
+  protocol         = "tcp"
+  cidr_blocks      = ["0.0.0.0/0"]
+  security_group_id = aws_security_group.acessos_masters.id
+}
+resource "aws_security_group_rule" "acessos_master_rule_tcp3" {
+  type             = "ingress"
+  description      = "Libera acessos"
+  from_port        = 30002
+  to_port          = 30002
+  protocol         = "tcp"
+  cidr_blocks      = ["0.0.0.0/0"]
+  security_group_id = aws_security_group.acessos_masters.id
+}
 resource "aws_security_group_rule" "acessos_master_rule_tcp_http" {
   type             = "ingress"
   description      = "Libera acessos"
