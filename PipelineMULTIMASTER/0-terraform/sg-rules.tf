@@ -26,7 +26,7 @@ resource "aws_security_group_rule" "acessos_master_rule_tcp" {
   cidr_blocks      = ["0.0.0.0/0"]
   security_group_id = aws_security_group.acessos_masters.id
 }
-resource "aws_security_group_rule" "acessos_master_rule_tcp" {
+resource "aws_security_group_rule" "acessos_master_rule_tcp_http" {
   type             = "ingress"
   description      = "Libera acessos"
   from_port        = 80
@@ -35,7 +35,7 @@ resource "aws_security_group_rule" "acessos_master_rule_tcp" {
   cidr_blocks      = ["0.0.0.0/0"]
   security_group_id = aws_security_group.acessos_masters.id
 }
-resource "aws_security_group_rule" "acessos_master_rule_tcp" {
+resource "aws_security_group_rule" "acessos_master_rule_tcp_http_java" {
   type             = "ingress"
   description      = "Libera acessos"
   from_port        = 8080
