@@ -11,7 +11,7 @@ pipeline {
         stage('Build docker') {
             steps {
                 sh 'chmod +x PipelineAPP/01-app/build_docker.sh'
-                sh "PipelineApp/01-app/build_docker.sh"
+                sh "PipelineAPP/01-app/build_docker.sh"
             }
         }
         stage('Build Dev') {
