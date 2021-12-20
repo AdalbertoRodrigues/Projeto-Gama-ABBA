@@ -35,7 +35,7 @@ Meta:<br><BR>
 - [Adalberto](https://www.linkedin.com/in/adalberto-r-t-jr)
 - [Bruno Roman](https://www.linkedin.com/in/bruno-roman%C2%AE-291bb371/)
 - [Bruno Frizanco]()
-- [Alan Souza]()
+- [Alan Souza](https://www.linkedin.com/in/alan-souza-a1694016a/)
 
 ## 🚀 Tecnologias
 
@@ -72,15 +72,23 @@ Tudo pronto!
 ## ⚙️ Funcionalidades
 Funcionalidades que o sistema oferece:
   
-  http://15.229.15.123:8080/job/PipelineInfra/
+  
 - Criação automática de Imagem (AMI) baseada em script Terraform/Ansible
+  [PipelineInfra](http://15.229.15.123:8080/job/PipelineInfra/)
   
-  http://15.229.15.123:8080/job/PipelineMultiMaster/
+  
+  
 - Criação de Infra Multi Master com 3 Máquinas Master, 3 Work Nodes e HAProxy
+  [PipelineMultiMaster](http://15.229.15.123:8080/job/PipelineMultiMaster/)
   
-  http://15.229.15.123:8080/job/PipelineSQL/
+  
+  
+  
 - Criação de Máquinas MySql em rede privada
+  [PipelineSQL](http://15.229.15.123:8080/job/PipelineSQL/)
   
-  http://15.229.15.123:8080/job/PipelineApp/
-- Criação de container Docker para aplicação Java
-- Deploy de container no cluster Kubernets Multi Master
+  
+  
+  
+- Criação de container Docker para aplicação Java && Deploy de container no cluster Kubernets Multi Master
+  [PipelineApp](http://15.229.15.123:8080/job/PipelineApp/)
