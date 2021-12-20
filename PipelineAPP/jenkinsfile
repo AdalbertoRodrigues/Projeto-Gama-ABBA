@@ -1,0 +1,41 @@
+
+pipeline {
+    agent any
+
+    parameters {
+        password(name: 'PASSWORD', defaultValue: '', description: 'Senha para database'),
+        dburl()
+    }
+
+    stages {
+        stage('Clone repo') {
+            steps {
+                git url: 'https://github.com/AdalbertoRodrigues/Projeto-Gama-ABBA', branch: 'main'
+            }
+        }
+        stage('Build docker') {
+            steps {
+                sh 'chmod +x PipelineAPP/01-app/build_docker.sh'
+                sh "PipelineApp/01-app/build_docker.sh"
+            }
+        }
+        stage('Build Dev') {
+            steps {
+                sh 'chmod +x PipelineAPP/02-Provision-APP/deployDev.sh'
+                sh "PipelineApp/02-Provision-APP/deployDev.sh"
+            }
+        }
+        stage('Build Stag') {
+            steps {
+                sh 'chmod +x PipelineAPP/02-Provision-APP/deployDev.sh'
+                sh "PipelineApp/02-Provision-APP/deployStag.sh"
+            }
+        }
+        stage('Build Prod') {
+            steps {
+                sh 'chmod +x PipelineAPP/02-Provision-APP/deployDev.sh'
+                sh "PipelineApp/02-Provision-APP/deployProd.sh"
+            }
+        }
+    }
+}
