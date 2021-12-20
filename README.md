@@ -1,5 +1,5 @@
 <h1 align="center">
-<img src="https://drive.google.com/file/d/1howKIw5drkQfgwgHmAJy8IMADuMggC2i/view?usp=sharing" title="Grupo ABBA DevOps" />
+<img src="https://github.com/AdalbertoRodrigues/Projeto-Gama-ABBA/blob/main/imagemCapa.PNG" title="Grupo ABBA DevOps" />
 </h1>
 
 <h3 align="center">
@@ -34,7 +34,7 @@ Meta:<br><BR>
 ### 💻 Desenvolvedores
 - [Adalberto](https://www.linkedin.com/in/adalberto-r-t-jr)
 - [Bruno Roman](https://www.linkedin.com/in/bruno-roman%C2%AE-291bb371/)
-- [Bruno Frizanco]()
+- [Bruno Frizanco](https://www.linkedin.com/in/bruno-castro-frizanco-42259888/)
 - [Alan Souza](https://www.linkedin.com/in/alan-souza-a1694016a/)
 
 ## 🚀 Tecnologias
