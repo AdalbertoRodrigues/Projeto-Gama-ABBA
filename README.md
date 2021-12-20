@@ -1,5 +1,5 @@
 <h1 align="center">
-<img src="https://www.canva.com/design/DAEzFYRX_T0/xbUzxX0i9dgOu9K7J9c6Lg/watch?utm_content=DAEzFYRX_T0&utm_campaign=designshare&utm_medium=link&utm_source=sharebutton" title="Grupo ABBA DevOps" />
+<img src="https://drive.google.com/file/d/1howKIw5drkQfgwgHmAJy8IMADuMggC2i/view?usp=sharing" title="Grupo ABBA DevOps" />
 </h1>
 
 <h3 align="center">
